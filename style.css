@@ -12,7 +12,7 @@ body {
 h1 {
   text-align: center;
   letter-spacing: 0.1rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 500;
 }
 .inputs {
@@ -22,7 +22,7 @@ h1 {
   justify-content: space-between;
 }
 input {
-  width: 16rem;
+  width: 13rem;
   height: 3.5rem;
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
@@ -36,7 +36,7 @@ input::placeholder {
 }
 button {
   color: white;
-  width: 16rem;
+  width: 12rem;
   height: 3.5rem;
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
@@ -60,6 +60,7 @@ button {
   padding: 0 1rem;
   font-size: 1.5rem;
   display: flex;
+  margin-bottom: 0.5rem;
   /* justify-content: space-between; */
   align-items: center;
   background-color: #e5c9c5;
