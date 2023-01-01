@@ -55,10 +55,55 @@ button {
 }
 
 .one {
-  height: 5rem;
+  height: 6rem;
   width: 100%;
   padding: 0 1rem;
+  font-size: 1.5rem;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  align-items: center;
   background-color: #e5c9c5;
+  letter-spacing: 0.1rem;
+}
+.name {
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70%;
+}
+.time {
+  color: gray;
+  letter-spacing: 0;
+  font-size: 1rem;
+}
+.ctry {
+  width: 25rem;
+}
+.scr {
+  width: 25rem;
+}
+.action {
+  display: flex;
+  margin-right: 3rem;
+}
+.action div {
+  height: 4rem;
+  width: 4rem;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: white;
+  margin: 0 0.25rem;
+}
+.del img {
+  scale: 0.8;
+}
+.plus:hover {
+  background-color: rgba(182, 255, 47, 0.596);
+}
+.minus:hover {
+  background-color: rgba(255, 78, 47, 0.596);
 }
