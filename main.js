@@ -43,8 +43,12 @@ let hrs = hours < 10 ? `0${hours}` : hours;
 let min = minutes < 10 ? `0${minutes}` : minutes;
 
 let timeNow = `${mon[month - 1]} ${date}, ${year} ${hrs}:${min}`;
+
 //event listeners
+
 add.addEventListener("click", () => {
+  let obj = [{ score: score.value }];
+
   if (
     firstname.value === "" ||
     lastname.value === "" ||
@@ -60,42 +64,93 @@ add.addEventListener("click", () => {
     score.value !== ""
   ) {
     req.textContent = "";
-    contents.innerHTML += `<div class="one">
-    <div class="name">
-      <p class="names">${
-        firstname.value.toLocaleUpperCase() +
-        " " +
-        lastname.value.toLocaleUpperCase()
-      }</p>
-      <p class="time">${timeNow}</p>
-    </div>
-    <p class="ctry">${country.value.toLocaleUpperCase()}</p>
-    <p class="scr">${score.value}</p>
-    <div class="action">
-      <div class="del">
-        <img src="./media/delete-bin-6-line.png" alt="delete" />
-      </div>
-      <div class="plus">+5</div>
-      <div class="minus">-5</div>
-    </div>
-  </div>`;
+    // for each player
+    const one = document.createElement("div");
+    one.className = "one";
+
+    const name = document.createElement("div");
+    name.className = "name";
+    const names = document.createElement("p");
+    names.textContent =
+      firstname.value.toUpperCase() + " " + lastname.value.toUpperCase();
+    names.className = "names";
+    name.appendChild(names);
+    const time = document.createElement("p");
+    time.textContent = timeNow;
+    time.className = "time";
+    name.appendChild(time);
+    one.appendChild(name);
+
+    const ctry = document.createElement("p");
+    ctry.textContent = country.value.toUpperCase();
+    ctry.className = "ctry";
+    one.appendChild(ctry);
+
+    const scr = document.createElement("p");
+    scr.textContent = obj[0].score;
+    scr.className = "scr";
+    one.appendChild(scr);
+
+    const action = document.createElement("div");
+    const del = document.createElement("div");
+    del.innerHTML = `<img src="./media/delete-bin-6-line.png" alt="delete" />`;
+    action.appendChild(del);
+    const plus = document.createElement("div");
+    plus.textContent = "+5";
+    plus.className = "plus";
+    action.appendChild(plus);
+    const minus = document.createElement("div");
+    minus.textContent = "-5";
+    minus.className = "minus";
+    action.appendChild(minus);
+    action.className = "action";
+    one.appendChild(action);
+
+    contents.appendChild(one);
+
+    //sorting
+    // let sorting = () => {
+    //   return obj.sort((a, b) => {
+    //     return b.score - a.score;
+    //   });
+    // };
+    // let tr = one.sort(scr);
+    //
+
+    del.addEventListener("click", () => {
+      one.style.display = "none";
+    });
+
+    plus.addEventListener("click", () => {
+      let sccr = parseInt(scr.textContent);
+      sccr += 5;
+      scr.textContent = sccr;
+    });
+
+    minus.addEventListener("click", () => {
+      let sccr = parseInt(scr.textContent);
+      sccr -= 5;
+      scr.textContent = sccr;
+    });
   }
 });
-plus.addEventListener("click", () => {
-  let sccr = parseInt(scr.textContent);
-  sccr += 5;
-  scr.textContent = sccr;
-});
 
-// req.textContent = "";
-// names.textContent =
-//   firstname.value.toLocaleUpperCase() +
-//   " " +
-//   lastname.value.toLocaleUpperCase();
-// time.textContent = timeNow;
-// ctry.textContent = country.value.toLocaleUpperCase();
-// scr.textContent = score.value;
-
-// minus.addEventListener("click", () => {
-//   parseInt(score.value) - 5;
-// });
+// contents.innerHTML += `<div class="one">
+//   <div class="name">
+//     <p class="names">${
+//       firstname.value.toLocaleUpperCase() +
+//       " " +
+//       lastname.value.toLocaleUpperCase()
+//     }</p>
+//     <p class="time">${timeNow}</p>
+//   </div>
+//   <p class="ctry">${country.value.toLocaleUpperCase()}</p>
+//   <p class="scr">${score.value}</p>
+//   <div class="action">
+//     <div class="del">
+//       <img src="./media/delete-bin-6-line.png" alt="delete" />
+//     </div>
+//     <div class="plus">+5</div>
+//     <div class="minus">-5</div>
+//   </div>
+// </div>`;
